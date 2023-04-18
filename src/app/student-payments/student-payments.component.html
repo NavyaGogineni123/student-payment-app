@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <h2 class="text-center mb-4">Payment List</h2>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" [(ngModel)]="searchText">
+          <button class="btn btn-primary" (click)="searchPaymentByLastName()">Search Payment first Name</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-primary" (click)="createPayment()">Add Payment</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-striped">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Student ID</th>
+              <th>Card Number</th>
+              <th>Expiry Date</th>
+              <th>CVV</th>
+              <th>Cardholder Name</th>
+              <th>Billing Address</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let payment of paymentList ">
+              <td>{{ payment.paymentId }}</td>
+              <td>{{ payment.studentId }}</td>
+              <td>{{ payment.cardNumber }}</td>
+              <td>{{ payment.expiryDate }}</td>
+              <td>{{ payment.cvv }}</td>
+              <td>{{ payment.cardholderName }}</td>
+              <td>{{ payment.billingAddress }}</td>
+              <td>{{ payment.paymentAmount }}</td>
+              <td>{{ payment.paymentDate | date }}</td>
+              <td>
+                <button class="btn btn-sm btn-primary" (click)="editPayment(payment)">Edit</button>
+                <button class="btn btn-sm btn-danger" (click)="deletePayment(payment)">Delete</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

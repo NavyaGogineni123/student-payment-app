@@ -58,6 +58,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "student-payments-app:build",
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "student-payments-app:build:production"
@@ -71,7 +75,8 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "student-payments-app:build"
+            "browserTarget": "student-payments-app:build",
+            "proxyConfig": "src/proxy.conf.json"
           }
         },
         "test": {
